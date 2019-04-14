@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../profile.service';
+import { ActivatedRoute } from '@angular/router'
+import { UserListComponent } from '../user-list/user-list.component'
 
 @Component({
   selector: 'app-user-page',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent implements OnInit {
-
-  constructor() { }
+  specificProfiles = null
+  constructor(
+    private profileService: ProfileService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    console.log(this.route.snapshot.params.userId)
+    setTimeout(() => {
+      this.profileService.getProfileDetails(this.route.snapshot.params.userId).subscribe(
+        response => {
+          this.specificProfiles = response
+          console.log(this.specificProfiles)
+        })
+    }, 2000)
   }
-
 }

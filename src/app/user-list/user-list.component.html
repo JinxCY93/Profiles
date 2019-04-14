@@ -1,6 +1,6 @@
 <h4>User profile list</h4>
 <ul>
   <li *ngFor="let profile of profiles">
-    <a routerLink="/profile/{{profile}}">{{profile}}</a>
+    <a routerLink="/users/{{profile.username}}/{{profile.id}}">{{profile.username}}</a>
   </li>
 </ul>
