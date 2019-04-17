@@ -1,4 +1,9 @@
 <a routerLink="/">
   <button>Home</button>
-  <img src="{{image}}" alt="" *ngFor="let image of specificProfiles">
+  <div class="container">
+    <div class="imgcontainer">
+      <img class="imgsize" src="{{image}}" alt="" *ngFor="let image of specificProfiles">
+    </div>
+  </div>
+
 </a>

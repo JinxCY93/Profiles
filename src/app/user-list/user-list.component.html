@@ -1,6 +1,22 @@
 <h4>User profile list</h4>
-<ul>
-  <li *ngFor="let profile of profiles">
-    <a routerLink="/users/{{profile.username}}/{{profile.id}}">{{profile.username}}</a>
-  </li>
-</ul>
+<div class="row">
+  <ul class="listdesign">
+    <li id="listdiv" *ngFor="let profile of profiles">
+
+      <div>
+        <div id="name">
+          <a class="fontdesign" routerLink="/users/{{profile.username}}/{{profile.id}}">{{profile.username}}</a>
+        </div>
+
+        <div id="imgcontainer">
+          <img class="avatar" src="{{profile.profileImage}}" alt="Avatar"
+            routerLink="/users/{{profile.username}}/{{profile.id}}">
+          <div class="middle">
+            <div class="text">{{profile.username}}</div>
+          </div>
+        </div>
+      </div>
+
+    </li>
+  </ul>
+</div>
